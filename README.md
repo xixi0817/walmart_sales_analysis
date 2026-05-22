@@ -75,5 +75,8 @@ Walmart Sales Dataset, [Kaggle](https://www.kaggle.com/datasets/yasserh/walmart-
 Xixi Lin is an MS Data Analytics student at Baruch College (CUNY), expected graduation Spring 2027. Interests span retail analytics, geospatial analysis, and AI applications in data work.
 
 **Other projects:**
-- 🏙️ [NYC Property Market Dashboard](https://github.com/xixi0817/nyc_property_dashboard) — Plotly Dash interactive dashboard analyzing 498K NYC property transactions
-- 🎨 [Art & Web Design Portfolio](https://xixi0817.github.io/art_portfolio/) — Illustration, vector design, and creative web pages
+- 🏙️ **NYC Property Market Dashboard** — Plotly Dash interactive dashboard analyzing 498K NYC property transactions (2013–2025)
+  - 🌐 [Live demo](https://nyc-property-dashboard-xi9u.onrender.com)
+  - 💻 [Source code](https://github.com/xixi0817/nyc_property_dashboard)
+- 🎨 **Art & Web Design Portfolio** — Illustration, vector design, and creative web pages
+  - 🌐 [Live site](https://xixi0817.github.io/art_portfolio/)

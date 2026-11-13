@@ -45,7 +45,7 @@ These changes were made after the original course submission. The model results 
 
 - **Script fix:** `forecast_result` was used but never defined, so the script stopped at the forecast chart. It is now defined as `forecast(arima_model, h = 12)`.
 - **Forecast chart labels:** the month labels on the forecast chart were about one month off. Tick positions are now computed from the real dates. The redrawn chart is `Rplot14_revised.png`; the original `Rplot14.png` is kept.
-- **Follow-up check:** adding `Store` as a factor to the reduced model (CPI + Unemployment + Holiday_Flag) raises R² from about 2.5% to about 92%. This was not part of the original analysis, but it shows that store identity explains far more of weekly sales than the economic factors do.
+- **Follow-up check:** adding `Store` as a factor to the reduced model (CPI + Unemployment + Holiday_Flag) raises R² from about 2.5% to about 92%. This was not part of the original analysis, but it shows that store identity explains far more of weekly sales than the economic factors do. The code is in Step 7 of the script, and `R_Store_AvgSales.png` shows average weekly sales by store (about $260K at Store 33 to about $2.11M at Store 20).
 
 ---
 
@@ -58,6 +58,7 @@ These changes were made after the original course submission. The model results 
 ├── Walmart.csv                         # Source dataset (Kaggle)
 ├── Rplot*.png                          # Output plots from R session
 ├── Rplot14_revised.png                 # Forecast chart with corrected month labels (Nov 2026)
+├── R_Store_AvgSales.png                # Average weekly sales by store, follow-up check (Nov 2026)
 └── README.md                           # This file
 ```
 

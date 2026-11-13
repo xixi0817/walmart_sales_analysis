@@ -253,6 +253,10 @@ walmart_ts <- ts(sales_ts$Weekly_Sales, frequency = 52)
 arima_model <- auto.arima(walmart_ts)
 print(arima_model)
 
+# Forecast the next 12 weeks
+# (Added November 2026: forecast_result was missing from the original submission)
+forecast_result <- forecast(arima_model, h = 12)
+
 # Plot forecast with colors
 plot(forecast_result,
      main = "Walmart Weekly Sales Forecast (Next 12 Weeks)",
@@ -265,12 +269,12 @@ plot(forecast_result,
      xaxt = "n")
 
 # month
+# (Fixed November 2026: tick positions are now computed from the real dates.
+#  The series starts on 2010-02-05, so time 1 is that week, not January 1.)
+month_ticks <- seq(as.Date("2010-04-01"), as.Date("2013-01-01"), by = "3 months")
 axis(1, 
-     at = seq(1, 4, by = 3/12), 
-     labels = c("Jan'10","Apr'10","Jul'10","Oct'10",
-                "Jan'11","Apr'11","Jul'11","Oct'11",
-                "Jan'12","Apr'12","Jul'12","Oct'12",
-                "Jan'13"),
+     at = 1 + as.numeric(month_ticks - min(sales_ts$Date)) / 364, 
+     labels = format(month_ticks, "%b'%y"),
      cex.axis = 0.7,
      las = 2)
 

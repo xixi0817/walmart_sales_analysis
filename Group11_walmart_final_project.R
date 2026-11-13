@@ -310,3 +310,33 @@ cat("Model 3 RMSE:", rmse(model_reduced), "\n")
 AIC(model_unemployment, model_all, model_reduced)
 
 
+
+#------------------------------------------------
+# Step 7: Follow-up Check - Store Effect (added November 2026)
+# Not part of the original course submission.
+#------------------------------------------------
+
+# Model 3 plus Store as a factor
+model_store <- lm(Weekly_Sales ~ Store + CPI + Unemployment + Holiday_Flag,
+                  data = walmart)
+cat("Model 3 R²:        ", summary(model_reduced)$r.squared, "\n")
+cat("Model 3 + Store R²:", summary(model_store)$r.squared, "\n")
+
+# Average weekly sales by store, sorted
+store_avg <- aggregate(Weekly_Sales ~ Store, data = walmart, FUN = mean)
+store_avg <- store_avg[order(store_avg$Weekly_Sales), ]
+
+par(mar = c(5, 6, 4, 2))
+barplot(store_avg$Weekly_Sales / 1e6,
+        names.arg = store_avg$Store,
+        col = "steelblue",
+        border = NA,
+        las = 2,
+        cex.names = 0.7,
+        ylab = "Average Weekly Sales (USD millions)",
+        xlab = "Store (sorted by average weekly sales)",
+        main = "Average Weekly Sales by Store, 2010-2012")
+abline(h = mean(walmart$Weekly_Sales) / 1e6, col = "red", lty = 2, lwd = 2)
+legend("topleft", legend = "Average across all stores",
+       col = "red", lty = 2, lwd = 2, bty = "n")
+par(mar = c(5, 4, 4, 2))
